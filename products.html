@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Abbigliamento - Prodotti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Radar Abbigliamento</a>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Registrati</button>
+            <button class="btn btn-info" id="cart-count">Carrello: 0</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero bg-info text-white text-center py-5">
+        <h1>Esplora i Nostri Prodotti</h1>
+        <p>Moda e Stile per ogni occasione!</p>
+    </header>
+
+    <!-- Prodotti -->
+    <section id="products" class="container mt-5">
+        <h2 class="text-center mb-4">I Nostri Prodotti</h2>
+        <div class="row">
+            <!-- Prodotto 1 -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Maglietta Uomo">
+                    <div class="card-body">
+                        <h5 class="card-title">Maglietta Uomo</h5>
+                        <p class="card-text">€ 19,99</p>
+                        <button class="btn btn-primary" id="product1-add">Aggiungi al carrello</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Prodotto 2 -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Jeans Donna">
+                    <div class="card-body">
+                        <h5 class="card-title">Jeans Donna</h5>
+                        <p class="card-text">€ 29,99</p>
+                        <button class="btn btn-primary" id="product2-add">Aggiungi al carrello</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Prodotto 3 -->
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Giacca Uomo">
+                    <div class="card-body">
+                        <h5 class="card-title">Giacca Uomo</h5>
+                        <p class="card-text">€ 49,99</p>
+                        <button class="btn btn-primary" id="product3-add">Aggiungi al carrello</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Radar Abbigliamento | Tutti i diritti riservati</p>
+        <p>Contatti: info@radarabbigliamento.com</p>
+    </footer>
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Accedi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registrazione -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrazione</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Nome Utente</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Registrati</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
