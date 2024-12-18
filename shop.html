@@ -6,14 +6,29 @@
             <h2>Prodotto 1</h2>
             <p>Descrizione breve del prodotto.</p>
             <p>€ 19,99</p>
-            <button id="product1-add">Aggiungi al carrello</button>
+            <button class="add-to-cart" data-product="1" data-price="19.99">Aggiungi al carrello</button>
         </div>
         <div class="product-item">
             <img src="images/product2.jpg" alt="Prodotto 2">
             <h2>Prodotto 2</h2>
             <p>Descrizione breve del prodotto.</p>
             <p>€ 29,99</p>
-            <button id="product2-add">Aggiungi al carrello</button>
+            <button class="add-to-cart" data-product="2" data-price="29.99">Aggiungi al carrello</button>
+        </div>
+        <!-- Aggiungi altri prodotti -->
+        <div class="product-item">
+            <img src="images/product3.jpg" alt="Prodotto 3">
+            <h2>Prodotto 3</h2>
+            <p>Descrizione breve del prodotto.</p>
+            <p>€ 39,99</p>
+            <button class="add-to-cart" data-product="3" data-price="39.99">Aggiungi al carrello</button>
+        </div>
+        <div class="product-item">
+            <img src="images/product4.jpg" alt="Prodotto 4">
+            <h2>Prodotto 4</h2>
+            <p>Descrizione breve del prodotto.</p>
+            <p>€ 49,99</p>
+            <button class="add-to-cart" data-product="4" data-price="49.99">Aggiungi al carrello</button>
         </div>
     </section>
     
@@ -22,5 +37,13 @@
         <h2>Carrello</h2>
         <p>Prodotti nel carrello: <span id="cart-count">0</span></p>
         <ul id="cart-items"></ul>
+        <p id="cart-total">Totale: € 0.00</p>
+        <button id="empty-cart" class="btn btn-danger">Svuota il carrello</button>
+        <button id="checkout" class="btn btn-success">Procedi al pagamento</button>
     </section>
+    
+    <!-- Sezione per messaggi -->
+    <div id="message" style="display: none;" class="alert alert-success">
+        <span id="message-text"></span>
+    </div>
     

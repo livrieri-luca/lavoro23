@@ -1,48 +1,56 @@
-// Funzione per gestire il carrello
-let cartCount = 0;
-const cartCountElement = document.getElementById('cart-count');
-let cartItems = [];
+// Variabili globali
+let cart = [];
+let total = 0;
 
-// Carica il carrello dal localStorage al caricamento della pagina
-function loadCart() {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-        cartItems = JSON.parse(savedCart);
-        cartCount = cartItems.length;
-        cartCountElement.textContent = `Carrello: ${cartCount}`;
-    }
+// Funzione per aggiornare il carrello
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const totalPrice = document.getElementById('total-price');
+    const paypalAmount = document.getElementById('paypal-amount');
+
+    // Pulisce la lista degli articoli nel carrello
+    cartItems.innerHTML = '';
+    total = 0;
+
+    // Aggiungi ogni articolo al carrello
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.textContent = `${item.name} - €${item.price}`;
+        cartItems.appendChild(listItem);
+        total += item.price;
+    });
+
+    // Aggiorna il totale
+    totalPrice.textContent = `Totale: € ${total.toFixed(2)}`;
+    paypalAmount.value = total.toFixed(2);
+
+    // Aggiorna il conteggio nel carrello
+    cartCount.setAttribute('data-count', cart.length);
 }
 
 // Funzione per aggiungere un prodotto al carrello
-function addToCart(name, price) {
-    cartCount++;
-    cartCountElement.textContent = `Carrello: ${cartCount}`;
-
-    // Aggiungi il prodotto al carrello
-    cartItems.push({ name, price });
-
-    // Salva il carrello nel localStorage
-    localStorage.setItem('cart', JSON.stringify(cartItems));
+function addToCart(product) {
+    cart.push(product);
+    updateCart();
 }
 
-// Aggiungere eventi per i prodotti nella pagina 'products.html'
-if (document.getElementById('product1-add')) {
-    document.getElementById('product1-add').addEventListener('click', function () {
-        addToCart('Maglietta Uomo', 19.99);  // Usa numeri per i prezzi, non stringhe
-    });
-}
+// Event listener per aggiungere prodotti al carrello
+document.getElementById('product1-add').addEventListener('click', () => {
+    addToCart({ name: 'Maglietta Uomo', price: 19.99 });
+});
 
-if (document.getElementById('product2-add')) {
-    document.getElementById('product2-add').addEventListener('click', function () {
-        addToCart('Jeans Donna', 29.99);  // Usa numeri per i prezzi, non stringhe
-    });
-}
+document.getElementById('product2-add').addEventListener('click', () => {
+    addToCart({ name: 'Jeans Donna', price: 29.99 });
+});
 
-if (document.getElementById('product3-add')) {
-    document.getElementById('product3-add').addEventListener('click', function () {
-        addToCart('Giacca Uomo', 49.99);  // Usa numeri per i prezzi, non stringhe
-    });
-}
+document.getElementById('product3-add').addEventListener('click', () => {
+    addToCart({ name: 'Giacca Uomo', price: 49.99 });
+});
 
-// Carica il carrello quando la pagina viene caricata
-loadCart();
+// Funzione per svuotare il carrello
+document.getElementById('empty-cart').addEventListener('click', () => {
+    cart = [];
+    updateCart();
+});

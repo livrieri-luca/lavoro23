@@ -1,63 +1,150 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radar Abbigliamento - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Collega il file CSS -->
 </head>
-
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">Radar Abbigliamento</a>
-            <button class="btn btn-outline-light" onclick="window.location.href='products.html'">Scopri i Prodotti</button>
+            <a class="navbar-brand" href="index.html">Radar Abbigliamento</a>
+            <button class="btn btn-outline-light mx-2" onclick="window.location.href='products.html'">Scopri i Prodotti</button>
+            <button class="btn btn-outline-light mx-2" onclick="window.location.href='contact.html'">Contatti</button>
+            <!-- Pulsante Login -->
+            <button class="btn btn-outline-light mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            <!-- Pulsante Registrazione -->
+            <button class="btn btn-outline-light mx-2" data-bs-toggle="modal" data-bs-target="#registerModal">Registrati</button>
+            <button class="btn btn-info" id="cart-count">Carrello: 0</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content text-center">
-            <h1 class="display-4">Radar Abbigliamento</h1>
-            <p class="lead">Moda per Uomo e Donna - Confort e Stile per ogni occasione!</p>
-            <a href="products.html" class="btn btn-primary btn-lg mt-4">Scopri i nostri prodotti</a>
-        </div>
-    </header>
-
-    <!-- Caratteristiche del negozio -->
-    <section class="features py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Perché scegliere Radar Abbigliamento?</h2>
+    <!-- Sezione Chi Siamo e Cosa Facciamo -->
+    <section id="about-us" class="bg-light py-5">
+        <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <h3>Qualità</h3>
-                        <p>Selezioniamo solo il meglio per te, dai materiali pregiati alle finiture impeccabili.</p>
-                    </div>
+                <div class="col-md-6 mb-4">
+                    <h2>Chi Siamo</h2>
+                    <p>Benvenuti nel nostro negozio online! Siamo un team di appassionati di moda, impegnati a offrirti prodotti di alta qualità scelti con cura per soddisfare ogni tua esigenza. La nostra missione è portare tendenze fresche e convenienti direttamente a casa tua, con un servizio che ti farà sentire sempre a tuo agio.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <h3>Stile</h3>
-                        <p>Moda moderna e senza tempo, per ogni stagione e per ogni occasione.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <h3>Comfort</h3>
-                        <p>I nostri capi sono pensati per offrirti il massimo comfort durante tutta la giornata.</p>
-                    </div>
+                <div class="col-md-6 mb-4">
+                    <h2>Cosa Facciamo</h2>
+                    <p>Offriamo una vasta gamma di abbigliamento per uomo e donna, dai capi casual a quelli più eleganti, pensati per ogni occasione. Con il nostro servizio di consegna rapido e sicuro, garantiamo un'esperienza di acquisto senza stress. Scopri i nostri prodotti e arricchisci la tua esperienza di shopping online, con un tocco di stile unico e accessibile.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Hero Section -->
+    <header class="hero py-5 bg-dark text-white text-center">
+        <div class="hero-content">
+            <h1>Radar Abbigliamento</h1>
+            <p>Moda per Uomo e Donna - Confort e Stile per ogni occasione!</p>
+            <a href="products.html" class="btn btn-primary btn-lg mt-4">Scopri i nostri prodotti</a>
+        </div>
+    </header>
+
+    <!-- Sezione Checkout -->
+    <section id="checkout" class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+                <h2 class="text-center mb-4">Procedi al Pagamento</h2>
+                
+                <!-- Dettagli Ordine -->
+                <div class="card shadow-lg rounded-lg mb-4">
+                    <div class="card-body">
+                        <h4>Ordine</h4>
+                        <ul id="cart-items" class="list-group">
+                            <!-- Articoli carrello dinamici -->
+                        </ul>
+                        <hr>
+                        <h5 class="text-end" id="total-price">Totale: € 0,00</h5>
+                    </div>
+                </div>
+
+                <!-- Bottone PayPal -->
+                <div class="text-center">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="tuo-email-paypal@example.com">
+                        <input type="hidden" name="item_name" value="Ordine Radar Abbigliamento">
+                        <input type="hidden" name="amount" id="paypal-amount" value="">
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="hidden" name="return" value="http://www.tuosito.com/thank-you.html">
+                        <input type="hidden" name="cancel_return" value="http://www.tuosito.com/cancel.html">
+                        <button type="submit" class="btn btn-success btn-lg">Paga con PayPal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 Radar Abbigliamento | Tutti i diritti riservati</p>
+        <p>Contatti: info@radarabbigliamento.com</p>
+    </footer>
+
+    <!-- Modale Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Inserisci la tua email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Inserisci la tua password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Accedi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale Registrazione -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Registrazione</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="Inserisci la tua email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Crea una password">
+                        </div>
+                        <button type="submit" class="btn btn-success">Registrati</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+    <!-- Inclusione del file JavaScript esterno -->
+    <script src="script.js"></script>
+
+</body>
 </html>
