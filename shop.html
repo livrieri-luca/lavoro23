@@ -1,49 +1,55 @@
-<!-- Aggiungi questo codice nella sezione <body> della tua shop.html -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Radar Abbigliamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Radar Abbigliamento</h1>
+    </header>
 
     <section id="product-list">
         <div class="product-item">
-            <img src="images/product1.jpg" alt="Prodotto 1">
-            <h2>Prodotto 1</h2>
-            <p>Descrizione breve del prodotto.</p>
+            <img src="images/product1.jpg" alt="Maglietta Uomo">
+            <h2>Maglietta Uomo</h2>
             <p>€ 19,99</p>
-            <button class="add-to-cart" data-product="1" data-price="19.99">Aggiungi al carrello</button>
+            <button class="add-to-cart" data-name="Maglietta Uomo" data-price="19.99">Aggiungi al carrello</button>
         </div>
         <div class="product-item">
-            <img src="images/product2.jpg" alt="Prodotto 2">
-            <h2>Prodotto 2</h2>
-            <p>Descrizione breve del prodotto.</p>
+            <img src="images/product2.jpg" alt="Jeans Donna">
+            <h2>Jeans Donna</h2>
             <p>€ 29,99</p>
-            <button class="add-to-cart" data-product="2" data-price="29.99">Aggiungi al carrello</button>
-        </div>
-        <!-- Aggiungi altri prodotti -->
-        <div class="product-item">
-            <img src="images/product3.jpg" alt="Prodotto 3">
-            <h2>Prodotto 3</h2>
-            <p>Descrizione breve del prodotto.</p>
-            <p>€ 39,99</p>
-            <button class="add-to-cart" data-product="3" data-price="39.99">Aggiungi al carrello</button>
+            <button class="add-to-cart" data-name="Jeans Donna" data-price="29.99">Aggiungi al carrello</button>
         </div>
         <div class="product-item">
-            <img src="images/product4.jpg" alt="Prodotto 4">
-            <h2>Prodotto 4</h2>
-            <p>Descrizione breve del prodotto.</p>
+            <img src="images/product3.jpg" alt="Giacca Uomo">
+            <h2>Giacca Uomo</h2>
             <p>€ 49,99</p>
-            <button class="add-to-cart" data-product="4" data-price="49.99">Aggiungi al carrello</button>
+            <button class="add-to-cart" data-name="Giacca Uomo" data-price="49.99">Aggiungi al carrello</button>
         </div>
     </section>
-    
-    <!-- Aggiungi una sezione per visualizzare il carrello -->
+
     <section id="cart">
         <h2>Carrello</h2>
         <p>Prodotti nel carrello: <span id="cart-count">0</span></p>
         <ul id="cart-items"></ul>
         <p id="cart-total">Totale: € 0.00</p>
         <button id="empty-cart" class="btn btn-danger">Svuota il carrello</button>
-        <button id="checkout" class="btn btn-success">Procedi al pagamento</button>
     </section>
-    
-    <!-- Sezione per messaggi -->
+
+    <!-- Pulsante PayPal -->
+    <div id="paypal-button-container"></div>
+
+    <!-- Messaggi -->
     <div id="message" style="display: none;" class="alert alert-success">
         <span id="message-text"></span>
     </div>
-    
+
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
+    <script src="paypal.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
