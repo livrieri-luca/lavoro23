@@ -238,3 +238,17 @@ button:hover {
         font-size: 1.1rem;
     }
 }
+.team-card {
+    text-align: center; /* Centrare il testo */
+    padding: 10px;      /* Spaziatura interna */
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco semi-trasparente */
+    border-radius: 8px; /* Angoli arrotondati */
+}
+@media (max-width: 768px) {
+    .team-card h5 {
+        font-size: 1rem; /* Riduci il testo sui dispositivi mobili */
+    }
+    .team-card p {
+        font-size: 0.9rem; /* Riduci il testo sui dispositivi mobili */
+    }
+}
