@@ -3,36 +3,36 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    margin-top: 60px; /* For navbar offset */
+    background-color: #e3f2fd; /* Azzurro chiaro vivace */
+    color: #212529; /* Testo scuro leggibile */
+    margin-top: 60px; /* Per navbar offset */
 }
 
 /* Navbar */
 .navbar {
-    background-color: #343a40;
+    background-color: #1e88e5; /* Blu acceso */
     z-index: 1000;
     padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(30, 136, 229, 0.2);
 }
 
 .navbar-brand {
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: white !important;
+    color: #ffffff !important;
 }
 
 .navbar .btn-outline-light {
-    border-color: white;
-    color: white;
+    border-color: #ffffff;
+    color: #ffffff;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .navbar .btn-outline-light:hover {
-    color: #1a73e8;
-    border-color: #1a73e8;
+    color: #ffc107;
+    border-color: #ffc107;
 }
 
 /* Hero Section */
@@ -63,14 +63,14 @@ body {
     font-size: 1.25rem;
     padding: 12px 35px;
     border-radius: 30px;
-    background-color: #28a745;
+    background-color: #ff5722; /* Arancione vivace */
     color: white;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .hero .btn:hover {
     transform: scale(1.1);
-    background-color: #218838;
+    background-color: #e64a19; /* Arancione più scuro */
 }
 
 /* About Section */
@@ -83,6 +83,7 @@ body {
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #1e88e5; /* Blu acceso */
 }
 
 .about p {
@@ -90,21 +91,23 @@ body {
     width: 70%;
     margin: 0 auto;
     line-height: 1.6;
+    color: #616161; /* Testo grigio scuro */
 }
 
 /* Features */
 .features {
-    background-color: #f1f1f1;
+    background-color: #f8f9fa;
     padding: 50px 0;
 }
 
 .features h2 {
     font-size: 2.5rem;
     margin-bottom: 50px;
+    color: #43a047; /* Verde acceso */
 }
 
 .feature-box {
-    background-color: white;
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -119,64 +122,20 @@ body {
 .feature-box h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
+    color: #ff5722; /* Arancione vivace */
 }
 
 .feature-box p {
     font-size: 1.1rem;
-    color: #666;
-}
-
-/* Checkout Section */
-#checkout .card {
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card-body h4 {
-    font-weight: 600;
+    color: #424242; /* Testo grigio scuro */
 }
 
 /* Footer */
 footer {
-    background-color: #343a40;
-    color: #fff;
+    background-color: #1e88e5; /* Blu acceso */
+    color: #ffffff;
     text-align: center;
     padding: 20px;
-}
-
-/* Modal */
-.modal-content {
-    border-radius: 8px;
-}
-
-.modal-header {
-    border-bottom: none;
-}
-
-.modal-body {
-    padding: 40px;
-}
-
-/* Cart Section */
-#cart-items {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#cart-count {
-    position: relative;
-}
-
-#cart-count::after {
-    content: attr(data-count);
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 0 5px;
-    font-size: 12px;
 }
 
 /* Button Hover Effects */
@@ -191,7 +150,7 @@ button:hover {
 
 /* Submit Button */
 .submit-btn {
-    background-color: #ff6a00;
+    background-color: #4caf50; /* Verde acceso */
     color: #fff;
     font-size: 1.2rem;
     padding: 15px 30px;
@@ -203,7 +162,7 @@ button:hover {
 }
 
 .submit-btn:hover {
-    background-color: #ee0979;
+    background-color: #388e3c; /* Verde più scuro */
     transform: scale(1.05);
 }
 
@@ -238,22 +197,16 @@ button:hover {
         font-size: 1.1rem;
     }
 }
+
 .team-card {
-    text-align: center; /* Centrare il testo */
-    padding: 10px;      /* Spaziatura interna */
-    background-color: rgba(255, 255, 255, 0.9); /* Sfondo bianco semi-trasparente */
-    border-radius: 8px; /* Angoli arrotondati */
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Bianco semi-trasparente */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 768px) {
-    .team-card h5 {
-        font-size: 1rem; /* Riduci il testo sui dispositivi mobili */
-    }
-    .team-card p {
-        font-size: 0.9rem; /* Riduci il testo sui dispositivi mobili */
-    }
-}
-.logo {
-    max-height: 71px; /* Dimensione media */
-    width: auto; /* Mantiene le proporzioni */
-    margin-right: 10px; /* Spaziatura tra il logo e il testo */
+.logo{
+    max-width: 71px;
+    margin-right: 10px;
+    width: auto;
 }

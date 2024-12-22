@@ -1,31 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('PayPal Buttons: Inizializzazione');
-    
+document.addEventListener('DOMContentLoaded', () => {
+    console.info('🛒 PayPal Buttons: Inizializzazione completata');
+
     paypal.Buttons({
-        createOrder: function (data, actions) {
+        // Crea l'ordine
+        createOrder: (data, actions) => {
             const total = cart.reduce((acc, item) => acc + item.price, 0);
-            console.log('Totale ordine:', total);
+            console.info(`💰 Totale ordine calcolato: €${total.toFixed(2)}`);
 
             return actions.order.create({
                 purchase_units: [{
                     amount: {
                         value: total.toFixed(2)
                     },
-                    description: "Acquisto su Radar Abbigliamento"
+                    description: "Acquisto su Radar Abbigliamento 🛍️"
                 }]
             });
         },
-        onApprove: function (data, actions) {
-            console.log('Pagamento approvato:', data);
-            return actions.order.capture().then(function (details) {
-                console.log('Dettagli ordine:', details);
-                alert(`Pagamento completato da ${details.payer.name.given_name}`);
+
+        // Gestisce l'approvazione del pagamento
+        onApprove: (data, actions) => {
+            console.info('✅ Pagamento approvato:', data);
+
+            return actions.order.capture().then(details => {
+                console.info('📦 Dettagli ordine:', details);
+
+                const buyerName = details.payer.name.given_name || 'Cliente';
+                alert(`🎉 Grazie, ${buyerName}! Il tuo pagamento è stato completato con successo.`);
+
+                // Svuota il carrello e aggiorna la vista
                 cart = [];
                 updateCart();
             });
         },
-        onError: function (err) {
-            console.error('Errore durante il pagamento:', err);
+
+        // Gestisce gli errori durante il processo di pagamento
+        onError: (err) => {
+            console.error('❌ Errore durante il pagamento:', err);
+            alert('⚠️ Si è verificato un errore durante il pagamento. Riprova più tardi.');
         }
     }).render('#paypal-button-container');
 });
