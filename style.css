@@ -252,3 +252,8 @@ button:hover {
         font-size: 0.9rem; /* Riduci il testo sui dispositivi mobili */
     }
 }
+.logo {
+    max-height: 71px; /* Dimensione media */
+    width: auto; /* Mantiene le proporzioni */
+    margin-right: 10px; /* Spaziatura tra il logo e il testo */
+}

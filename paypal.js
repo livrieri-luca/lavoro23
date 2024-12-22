@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('PayPal Buttons: Inizializzazione');
+    
     paypal.Buttons({
         createOrder: function (data, actions) {
             const total = cart.reduce((acc, item) => acc + item.price, 0);
+            console.log('Totale ordine:', total);
 
             return actions.order.create({
                 purchase_units: [{
@@ -13,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
         onApprove: function (data, actions) {
+            console.log('Pagamento approvato:', data);
             return actions.order.capture().then(function (details) {
+                console.log('Dettagli ordine:', details);
                 alert(`Pagamento completato da ${details.payer.name.given_name}`);
                 cart = [];
                 updateCart();
