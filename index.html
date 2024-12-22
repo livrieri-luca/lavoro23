@@ -18,7 +18,7 @@
             Radar Abbigliamento
         </a>
         <button class="btn btn-outline-light mx-2" onclick="window.location.href='products.html'">Scopri i Prodotti</button>
-        <button class="btn btn-outline-light mx-2" onclick="window.location.href='contact.html'">Contatti</button>
+        <button class="btn btn-outline-light mx-2" onclick="window.location.href='contact.html'">Contattaci</button>
       
         <button class="btn btn-info" id="cart-count">Carrello: 0</button>
     </div>
@@ -87,7 +87,7 @@
     <header class="hero py-5 bg-dark text-white text-center">
         <div class="hero-content">
             <h1>Radar Abbigliamento</h1>
-            <p>Moda per Uomo e Donna - Confort e Stile per ogni occasione!</p>
+            <p>Moda per Donna e Uomo - Confort e Stile per ogni occasione!</p>
             <a href="products.html" class="btn btn-primary btn-lg mt-4">Scopri i nostri prodotti</a>
         </div>
         
@@ -110,41 +110,7 @@
         </div>
     </div>
 </section>
-<!-- Sezione Checkout -->
-    <section id="checkout" class="container mt-5 pt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-12">
-                <h2 class="text-center mb-4">Procedi al Pagamento</h2>
-                  <!-- Dettagli Ordine -->
-                <div class="card shadow-lg rounded-lg mb-4">
-                    <div class="card-body">
-                        <h4>Ordine</h4>
-                        <ul id="cart-items" class="list-group">
-                            <!-- Articoli carrello dinamici -->
-                        </ul>
-                        <hr>
-                        <h5 class="text-end" id="total-price">Totale: € 0,00</h5>
-                    </div>
-                </div>
-
-                <!-- Bottone PayPal -->
-                <div class="text-center">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="tuo-email-paypal@example.com">
-                        <input type="hidden" name="item_name" value="Ordine Radar Abbigliamento">
-                        <input type="hidden" name="amount" id="paypal-amount" value="">
-                        <input type="hidden" name="currency_code" value="EUR">
-                        <input type="hidden" name="return" value="http://www.tuosito.com/thank-you.html">
-                        <input type="hidden" name="cancel_return" value="http://www.tuosito.com/cancel.html">
-                        <button type="submit" class="btn btn-success btn-lg">Paga con PayPal</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+<!-- Footer -->
     <footer class="bg-dark text-white text-center py-4">
         <p>&copy; 2024 Radar Abbigliamento | Tutti i diritti riservati</p>
         <p>Contatti:dino.livrieri@alice.it</p>
