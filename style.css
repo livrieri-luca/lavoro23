@@ -149,52 +149,102 @@ button:hover {
 }
 
 /* Submit Button */
+/* Contact Section */
+.contact-section {
+    background: linear-gradient(to bottom, #007aff, #0056b3); /* Sfondo blu sfumato */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section .section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section .section-description {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #f1f1f1;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-form label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #007aff;
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #007aff;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: #ffcc00; /* Giallo acceso */
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.5);
+}
+
 .submit-btn {
-    background-color: #4caf50; /* Verde acceso */
+    background-color: #ff5722;
     color: #fff;
     font-size: 1.2rem;
     padding: 15px 30px;
     border: none;
-    border-radius: 6px;
+    border-radius: 30px;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.5);
+    font-weight: 600;
 }
 
 .submit-btn:hover {
-    background-color: #388e3c; /* Verde più scuro */
+    background-color: #e64a19;
     transform: scale(1.05);
 }
 
-/* Mobile Responsiveness */
+/* Responsiveness */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .about p {
-        font-size: 1rem;
-        width: 90%;
-    }
-
     .contact-section {
-        padding: 60px 20px;
+        padding: 40px 15px;
     }
 
-    .contact-form-container {
-        padding: 30px;
+    .contact-form {
+        padding: 20px;
     }
 
     .contact-section .section-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .contact-section .section-description {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
 
